@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block all %}
+<div class="page-header">
+	<img src="/static/img/yelp2.jpg" height='400' >
+</div>
+
+<body> 
+	<br>
+	<br>
+	<p>An automated system that will generate a browsable summary of the opinions expressed in a corpus of Yelp reviews about a particular restaurant. The summary will provide a user with restaurant's features or aspects (eg: food, service, shakes, fries) as well as reviewers' opinion on these features. 
+	<br>
+	<br>
+	Please select a restaurant to explore aspect based opinion mining results:
+	</p>
+	<br>
+	<section class="demo">
+	<dl class="list nigiri">
+	<dt>Resturants</dt>
+		{% for business in businesses[0:10] %}
+			<dd> 
+				<a href="/summaries/{{ business['business_id'] }}">{{ business['business_name'] }} </a>
+			</dd> 
+		{% endfor %}
+	</dl>	
+	<dl class="list maki">
+	<dt>Resturants</dt>
+		{% for business in businesses[11:21] %}
+			<dd> 
+				<a href="/summaries/{{ business['business_id'] }}">{{ business['business_name'] }} </a>
+			</dd> 
+		{% endfor %}
+	</dl>
+	<dl class="list sashimi">
+	<dt>Resturants</dt>
+		{% for business in businesses[22:32] %}
+			<dd> 
+				<a href="/summaries/{{ business['business_id'] }}">{{ business['business_name'] }} </a>
+			</dd> 
+		{% endfor %}
+	</dl>		
+	</section>
+	
+	<br>
+	<br>
+
+</body>
+{% endblock %}

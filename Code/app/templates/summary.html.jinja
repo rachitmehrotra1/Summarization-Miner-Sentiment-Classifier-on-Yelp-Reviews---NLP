@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block all %}
+	<head>
+		 <h1><b><center>{{ summary['business_name'] }}</center></b></h1>
+	</head>
+
+	<body>
+
+		<ul class="nav nav-pills" role="tablist">
+		
+		{% for aspect in summary['aspect_summary'] %}
+
+			{% if loop.index == 1 %}
+				<li class="active"><a href=#{{ aspect.replace(" ", "_").replace("'", "_") }} role="tab" data-toggle="tab">{{ aspect }} </a></li>
+			{% else %}
+				<li><a href=#{{ aspect.replace(" ", "_").replace("'", "_") }} role="tab" data-toggle="tab">{{ aspect }} </a></li>
+			{% endif %}
+
+		{% endfor %}
+
+		</ul>
+
+		<div class="tab-content">
+		 
+		{% for aspect in summary['aspect_summary'] %} 
+
+		  {% if loop.index == 1%}	
+		  <div class="tab-pane active" id="{{ aspect.replace(" ", "_").replace("'", "_")}}">
+		  {% else %}
+		  <div class="tab-pane" id="{{ aspect.replace(" ", "_").replace("'", "_")}}">
+		  {% endif %}
+			<h2><b>Positive <span class="label label-success">{{ summary['aspect_summary'][aspect]['num_pos'] }}</span></b></h2>
+				<ul class="featureList">
+					{% for pos_sent in summary['aspect_summary'][aspect]['pos'] %}
+						{% if loop.index | less_than_ten %}
+							<li class="tick">
+								{{ pos_sent['text'] }} - {{ pos_sent['user']}} 
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>	
+			<h2><b>Negative <span class="label label-warning">{{ summary['aspect_summary'][aspect]['num_neg'] }}</span></b></h2>
+				<ul class="featureList">
+					{% for neg_sent in summary['aspect_summary'][aspect]['neg'] %}
+						{% if loop.index | less_than_ten %}
+						<li class="cross">
+							{{ neg_sent['text'] }} - {{ neg_sent['user']}} 
+							
+						</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+		  </div>
+		
+		{% endfor %}
+
+		</div>
+
+	</body>
+
+	<br>
+	<div class="footer navbar navbar-default">
+		<p class="text-center"> <a href="/dashboard"> Return to Dashboard </a> </p>
+	</div>
+{% endblock %}
