@@ -8,12 +8,14 @@ This file:
 - splits data into development and pure holdout sets and writes these to disk
 
 """
+#Rachit Mehrotra
+#rm4149@nyu.edu
 
 import os
 import pandas as pd
 
-PATH_TO_SENT = "/Users/Iqra/Downloads/NLP Project/opinion-mining-master/train/" # hand-tagged training data
-PATH_TO_YELP = '/Users/Iqra/Downloads/NLP Project/opinion-mining-master/data/yelp_academic_dataset_review.json' # raw Yelp data
+PATH_TO_SENT = "/Users/Rachit/Downloads/NLP Project/opinion-mining-master/train/" # hand-tagged training data
+PATH_TO_YELP = '/Users/Rachit/Downloads/NLP Project/opinion-mining-master/data/yelp_academic_dataset_review.json' # raw Yelp data
 
 train_fnames = [fname for fname in os.listdir(PATH_TO_SENT) if fname.startswith("Training")]
 
@@ -34,7 +36,7 @@ base_df.sentiment[base_df.sentiment=='Neutral'] = 'Negative'
 
 # READ IN THE YELP DATA....
 print "Reading in the Yelp data..."
-processed_df = pd.read_csv('/Users/Iqra/Downloads/NLP Project/opinion-mining-master/processed.csv',low_memory=False)
+processed_df = pd.read_csv('/Users/Rachit/Downloads/NLP Project/opinion-mining-master/processed.csv',low_memory=False)
 
 # keep only what's needed
 keeps =['business_id', 'review_id', 'user_id', 'review_stars', 'user_avg_stars']
@@ -51,7 +53,7 @@ final_df = final_df[~final_df.business_id.isnull()]
 
 ## Import Sentence class from this project
 import sys
-sys.path.append('/Users/Iqra/Downloads/NLP Project/opinion-mining-master')
+sys.path.append('/Users/Rachit/Downloads/NLP Project/opinion-mining-master')
 from classes.sentence import Sentence
 
 print "Featurizing the training data frame (may take a little while)"
@@ -88,7 +90,7 @@ df_holdout = featurized_df.ix[rows].copy()
 df_devel = featurized_df.drop(rows).copy()
 
 # Write to disk
-df_holdout.to_csv("/Users/Iqra/Downloads/NLP Project/opinion-mining-master/featurized_pristine_holdout.csv", index=False)
-df_devel.to_csv("/Users/Iqra/Downloads/NLP Project/opinion-mining-master/featurized_development.csv", index=False)
+df_holdout.to_csv("/Users/Rachit/Downloads/NLP Project/opinion-mining-master/featurized_pristine_holdout.csv", index=False)
+df_devel.to_csv("/Users/Rachit/Downloads/NLP Project/opinion-mining-master/featurized_development.csv", index=False)
 
 print "Done."

@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect
 from pymongo import MongoClient
 import jinja2
+#Rachit Mehrotra
+#rm4149@nyu.edu
 
 app = Flask(__name__)
 

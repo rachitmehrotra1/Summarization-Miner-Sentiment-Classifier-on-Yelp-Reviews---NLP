@@ -9,6 +9,9 @@ It then merges the three datasets and retains only Restaurants
 that have a large number of reviews. It then writes the resulting
 DataFrame to disk for later consumption
 """
+#Rachit Mehrotra
+#rm4149@nyu.edu
+
 
 import json
 import pandas as pd
@@ -24,9 +27,9 @@ def read_from_json(fpath):
 
 if __name__ == "__main__":
 
-	PATH = '/Users/Iqra/Downloads/NLP Project/opinion-mining-master/data/'
+	PATH = '/Users/Rachit/Downloads/NLP Project/opinion-mining-master/data/'
 	NUM_REVIEW_THRESH = 300 
-	OUT_FNAME = '/Users/Iqra/Downloads/NLP Project/opinion-mining-master/processed.csv'
+	OUT_FNAME = '/Users/Rachit/Downloads/NLP Project/opinion-mining-master/processed.csv'
 
 	# read in the raw data
 	business_path = PATH + 'yelp_academic_dataset_business.json'

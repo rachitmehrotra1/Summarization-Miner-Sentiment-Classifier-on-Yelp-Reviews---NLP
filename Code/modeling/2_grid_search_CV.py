@@ -8,6 +8,9 @@ This file:
 	- Best SENTIMENT MODEL (positive vs. negative, assuming opinionated) 
 
 """
+#Rachit Mehrotra
+#rm4149@nyu.edu
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.pipeline import Pipeline
@@ -122,7 +125,7 @@ if __name__ == "__main__":
 
 	print "Reading data..."
 
-	development_df = pd.read_csv("/Users/Iqra/Downloads/NLP Project/opinion-mining-master/featurized_development.csv") # raw data set
+	development_df = pd.read_csv("/Users/Rachit/Downloads/NLP Project/opinion-mining-master/featurized_development.csv") # raw data set
 
 	print "Size of complete development set: %d" % len(development_df)
 	print "Target class breakdowns:"

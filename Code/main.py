@@ -2,6 +2,8 @@ import json
 import time
 import pandas as pd
 import sys
+#Rachit Mehrotra
+#rm4149@nyu.edu
 
 from pymongo import MongoClient
 from classes.business import Business
@@ -10,7 +12,7 @@ def get_reviews_for_business(bus_id, df):
 	return df[df.business_id==bus_id]
 
 def read_data():
-	return pd.read_csv('/Users/Iqra/Downloads/NLP Project/opinion-mining-master/processed.csv')
+	return pd.read_csv('/Users/Rachit/Downloads/NLP Project/opinion-mining-master/processed.csv')
 
 def main(): 
 	reload(sys)
